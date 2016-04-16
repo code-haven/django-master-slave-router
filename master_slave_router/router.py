@@ -46,6 +46,14 @@ class MasterSlaveRouter(object):
         """
         return True
 
+    def allow_syncdb(self, database, *args):
+        """
+         Support django < 1.7 syncdb operation.
+        """
+        if database == settings.MASTER_DATABASE:
+            return True
+        return None
+
     def allow_migrate(self, database, *args):
         """
         Allow migrations only if db is master.
