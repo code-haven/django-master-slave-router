@@ -32,30 +32,23 @@ Add the following settings inside your project's **settings.py**
 3) Add connection settings for slave/master databases.
 
     DATABASES = {
+        'default': {
+            ...
+            },
 
-    'default': {
-        ...
-        'NAME'    : 'test_master',
-        ...
-        },
+        'test_slave_1': {
+            ...
+            },
 
-    'slave_1': {
-        ...
-        'NAME'    : 'test_slave_1',
-        ...
-        },
-
-    'slave_2': {
-         ...
-        'NAME'    : 'test_slave2',
-        ...
-        }
+        'test_slave_2': {
+            ...
+            }
     }
 
 4) Specify name(s) of the master and slave connections.
 
     SLAVE_DATABASES = ('test_slave1', 'test_slave2')
-    MASTER_DATABASE = 'test_master'
+    MASTER_DATABASE = 'default'
 
 
 
