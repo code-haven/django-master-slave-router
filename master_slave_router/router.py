@@ -14,6 +14,11 @@ if settings.has_attr('SLAVE_DATABASES'):
     HAS_SLAVES = True
     SLAVE_DATABASE = cycle(settings.SLAVE_DATABASES)
 
+if settings.has_attr('MASTER_DATABASE'):
+    MASTER_DATABASE = settings.MASTER_DATABASE
+else:
+    MASTER_DATABASE = 'default'
+
 
 class MasterSlaveRouter(object):
     """
